@@ -1,0 +1,386 @@
+---
+openapi: 3.0.3
+info:
+  title: cert-management API
+  version: 1.0.0-SNAPSHOT
+paths:
+  /api/v1/addresses:
+    get:
+      tags:
+      - Address Api
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AddressEntity'
+    post:
+      tags:
+      - Address Api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddressEntity'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AddressEntity'
+  /api/v1/addresses/{id}:
+    get:
+      tags:
+      - Address Api
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      responses:
+        "200":
+          description: OK
+    put:
+      tags:
+      - Address Api
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddressEntity'
+      responses:
+        "200":
+          description: OK
+    delete:
+      tags:
+      - Address Api
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      responses:
+        "200":
+          description: OK
+  /api/v1/contracts:
+    get:
+      tags:
+      - Contract Api
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ContractEntity'
+    post:
+      tags:
+      - Contract Api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContractEntity'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContractEntity'
+  /api/v1/contracts/{id}:
+    get:
+      tags:
+      - Contract Api
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      responses:
+        "200":
+          description: OK
+    put:
+      tags:
+      - Contract Api
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContractEntity'
+      responses:
+        "200":
+          description: OK
+    delete:
+      tags:
+      - Contract Api
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      responses:
+        "200":
+          description: OK
+  /api/v1/customers:
+    get:
+      tags:
+      - Customer Api
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CustomerEntity'
+    post:
+      tags:
+      - Customer Api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomerEntity'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomerEntity'
+  /api/v1/customers/{id}:
+    get:
+      tags:
+      - Customer Api
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      responses:
+        "200":
+          description: OK
+    put:
+      tags:
+      - Customer Api
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomerEntity'
+      responses:
+        "200":
+          description: OK
+    delete:
+      tags:
+      - Customer Api
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      responses:
+        "200":
+          description: OK
+  /api/v1/users:
+    get:
+      tags:
+      - User Api
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserEntity'
+    post:
+      tags:
+      - User Api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserEntity'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserEntity'
+  /api/v1/users/{id}:
+    get:
+      tags:
+      - User Api
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      responses:
+        "200":
+          description: OK
+    put:
+      tags:
+      - User Api
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddressEntity'
+      responses:
+        "200":
+          description: OK
+    delete:
+      tags:
+      - User Api
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      responses:
+        "200":
+          description: OK
+components:
+  schemas:
+    AddressEntity:
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+        street:
+          type: string
+        number:
+          type: string
+        zip:
+          type: string
+        city:
+          type: string
+        country:
+          type: string
+    ContractEntity:
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+        startDate:
+          format: date-time
+          type: string
+        endDate:
+          format: date-time
+          type: string
+        version:
+          format: float
+          type: number
+        ip1:
+          type: string
+        ip2:
+          type: string
+        ip3:
+          type: string
+        featureA:
+          format: int32
+          type: integer
+        featureB:
+          format: int32
+          type: integer
+        featureC:
+          format: int32
+          type: integer
+        customerEntity:
+          $ref: '#/components/schemas/CustomerEntity'
+        userEntity1:
+          $ref: '#/components/schemas/UserEntity'
+        userEntity2:
+          $ref: '#/components/schemas/UserEntity'
+    CustomerEntity:
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+        name:
+          type: string
+        department:
+          type: string
+        addressEntity:
+          $ref: '#/components/schemas/AddressEntity'
+    UserEntity:
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+        firstName:
+          type: string
+        lastName:
+          type: string
+        username:
+          type: string
+        mail:
+          type: string
+        password:
+          type: string
+        phone1:
+          type: string
+        phone2:
+          type: string
+        isAdmin:
+          type: boolean
